@@ -19,7 +19,7 @@ def pregunta_01():
     from sklearn.preprocessing import PolynomialFeatures
 
     # Cargue el dataset `data.csv`
-    data =pd.read("https://github.com/analitica-predictiva/estimacion-de-parametros-usando-gradiente-descendente-ATHidalgo/blob/main/data.csv")
+    data =pd.read_csv("https://github.com/analitica-predictiva/estimacion-de-parametros-usando-gradiente-descendente-ATHidalgo/blob/main/data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
     poly =PolynomialFeatures().set_params(degree=2)
