@@ -19,7 +19,7 @@ def pregunta_01():
     from sklearn.preprocessing import PolynomialFeatures
 
     # Cargue el dataset `data.csv`
-    data =pd.read_csv("https://github.com/analitica-predictiva/estimacion-de-parametros-usando-gradiente-descendente-ATHidalgo/blob/main/data.csv")
+    data =pd.read_csv("https://raw.githubusercontent.com/analitica-predictiva/estimacion-de-parametros-usando-gradiente-descendente-ATHidalgo/main/data.csv")
 
     # Cree un objeto de tipo `PolynomialFeatures` con grado `2`
     poly =PolynomialFeatures().set_params(degree=2)
@@ -44,7 +44,7 @@ def pregunta_02():
 
     # Defina el parámetro inicial `params` como un arreglo de tamaño 3 con ceros
     params = np.zeros(x_poly.shape[1])
-    for params in range(n_iterations):
+    for epoch in range(n_iterations):
 
         # Compute el pronóstico con los parámetros actuales
         y_pred = np.dot(x_poly, params)
@@ -53,7 +53,7 @@ def pregunta_02():
         error = y_pred - y
 
         # Calcule el gradiente
-        gradient = (1 / len(y)) * np.dot(x_poly.T, error)
+        gradient = np.dot(x_poly.T, error)
 
         # Actualice los parámetros
         params = params - learning_rate * gradient
